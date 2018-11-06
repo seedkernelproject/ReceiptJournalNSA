@@ -1,2 +1,20 @@
 <!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
-<page-router-outlet></page-router-outlet>
+<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+        <StackLayout class="sidedrawer-header">
+            <Label row="0" text="UPS Logistics" class="sidedrawer-header-brand" textWrap="true"></Label>
+        </StackLayout>
+        <ScrollView row="1">
+            <StackLayout class="sidedrawer-content">
+                <GridLayout columns="auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/cashflow')" (tap)="onNavItemTap('/cashflow')">
+                    <Label col="1" text="Cashflow" class="sidedrawer-list-item-text"></Label>
+                </GridLayout>
+                <GridLayout columns="auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/newreceipt')" (tap)="onNavItemTap('/newreceipt')">
+                    <Label col="1" text="Client Receipts" class="sidedrawer-list-item-text"></Label>
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+    
+<page-router-outlet tkMainContent></page-router-outlet>
+</RadSideDrawer>

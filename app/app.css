@@ -9,4 +9,38 @@ In many cases you may want to use the NativeScript core theme instead
 of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
-@import '~nativescript-theme-core/css/core.light.css';
+
+.sidedrawer-left {
+    background-color: #fff2df;
+}
+
+.sidedrawer-header {
+    background-color: #553e2e;
+}
+
+.sidedrawer-header .sidedrawer-header-image {
+    background-color: #d9ad7c;
+    margin: 10;
+}
+
+.sidedrawer-header .sidedrawer-header-brand {
+    color: #ffffff;
+    font-size: 30;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.sidedrawer-list-item {
+    padding-left: 15;
+    color: black;
+}
+
+.sidedrawer-list-item-text {
+    font-size: 20;
+    border-width: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.selected {
+    background-color: #a2836e;
+    color: #fff2df;
+}

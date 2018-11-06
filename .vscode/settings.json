@@ -3,5 +3,6 @@
     "files.exclude": {
         "**/*.js": { "when": "$(basename).ts" },
         "**/*.map": { "when": "$(basename).map" }
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

@@ -1,0 +1,94 @@
+<ActionBar title="Cashflow" class="action-bar" style="background-color: #553e2e">
+</ActionBar>
+<TabView #tabview>
+                <GridLayout rows="50,*" *tabItem="{title: 'Unpaid'}" class="page">
+                                <GridLayout row="0" columns="auto,*" style="background-color: #de1b1b; color:white; font: bold">
+                                        <Label col="0" text="Total Unpaid Profit:" class="listheader"></Label>
+                                        <Label col="1" [text]="totalUnpaidProfit" class="listheader alignRight"></Label>
+                                </GridLayout>
+                                <ScrollView row="1" >
+                                        <ListView [items]="unpaidReceipts" *ngIf="unpaidReceipts" class="list-group" style="background-color: #f5f2e1e0">
+                                                <ng-template let-receipt="item">
+                                                            <StackLayout class="list-group-item">
+                                                                <GridLayout columns="* *">
+                                                                        <Label col="0" [text]="receipt.clientname" class="listheader"></Label>
+                                                                        <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight"></Label>
+                                                                </GridLayout>
+                                                                <StackLayout orientation="horizontal">
+                                                                        <Label [text]="receipt.origin" class="listitem"></Label>
+                                                                        <Label text=" - " class="listitem"></Label>
+                                                                        <Label [text]="receipt.destination" class="listitem"></Label>   
+                                                                </StackLayout>
+                                                                <StackLayout orientation="horizontal">
+                                                                        <Label col="0" text="Profit: " class="listitem"></Label>
+                                                                        <Label col="1"  [text]="receipt.profit" class="listitem"></Label>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                    </ng-template>
+                                                </ListView>
+                                                <ActivityIndicator busy="true"  *ngIf="!(receipts || errMess)" width="50" height="50" class="activity-indicator"></ActivityIndicator>
+                                                <Label *ngIf="errMess" [text]="'Error: ' + errMess"></Label>
+                                </ScrollView>
+                        </GridLayout>  
+        <GridLayout rows="50,*" *tabItem="{title: 'Paid'}" class="page">
+                <GridLayout row="0" columns="auto,*" style="background-color: rgb(35, 35, 247); color:white; font: bold">
+                        <Label col="0" text="Total Paid Profit:" class="listheader"></Label>
+                        <Label col="1" [text]="totalPaidProfit" class="listheader alignRight"></Label>
+                </GridLayout>
+                <ScrollView row="1" >
+                        <ListView [items]="paidReceipts" *ngIf="paidReceipts" class="list-group" style="background-color: #cadbe2">
+                                <ng-template let-receipt="item">
+                                            <StackLayout class="list-group-item">
+                                                <GridLayout columns="* *">
+                                                        <Label col="0" [text]="receipt.clientname" class="listheader"></Label>
+                                                        <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight"></Label>
+                                                </GridLayout>
+                                                <StackLayout orientation="horizontal">
+                                                        <Label [text]="receipt.origin" class="listitem"></Label>
+                                                        <Label text=" - " class="listitem"></Label>
+                                                        <Label [text]="receipt.destination" class="listitem"></Label>   
+                                                </StackLayout>
+                                                <StackLayout orientation="horizontal">
+                                                        <Label col="0" text="Profit: " class="listitem"></Label>
+                                                        <Label col="1"  [text]="receipt.profit" class="listitem"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                    </ng-template>
+                                </ListView>
+                                <ActivityIndicator busy="true"  *ngIf="!(receipts || errMess)" width="50" height="50" class="activity-indicator"></ActivityIndicator>
+                                <Label *ngIf="errMess" [text]="'Error: ' + errMess"></Label>
+                </ScrollView>
+        </GridLayout>
+        <GridLayout rows="50,*" *tabItem="{title: 'Client Receipts'}" class="page">
+                        <GridLayout row="0" columns="auto,*" style="background-color: #a2836e; color:white; font: bold">
+                                <Label col="0" text="Total Unpaid Amount:" class="listheader"></Label>
+                                <Label col="1" [text]="totalUnpaidReceipt" class="listheader alignRight"></Label>
+                        </GridLayout>
+                        <ScrollView row="1" >
+                                <ListView [items]="unpaidReceipts" *ngIf="unpaidReceipts" class="list-group" style="background-color: #fff2df">
+                                        <ng-template let-receipt="item">
+                                                    <StackLayout class="list-group-item">
+                                                        <GridLayout columns="* *">
+                                                                <Label col="0" [text]="receipt.clientname" class="listheader"></Label>
+                                                                <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight"></Label>
+                                                        </GridLayout>
+                                                        <StackLayout orientation="horizontal">
+                                                                <Label [text]="receipt.origin" class="listitem"></Label>
+                                                                <Label text=" - " class="listitem"></Label>
+                                                                <Label [text]="receipt.destination" class="listitem"></Label>   
+                                                        </StackLayout>
+                                                        <StackLayout orientation="horizontal">
+                                                                <Label col="0" text="Price: " class="listitem"></Label>
+                                                                <Label col="1"  [text]="receipt.totalprice" class="listitem"></Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                            </ng-template>
+                                        </ListView>
+                                        <ActivityIndicator busy="true"  *ngIf="!(receipts || errMess)" width="50" height="50" class="activity-indicator"></ActivityIndicator>
+                                        <Label *ngIf="errMess" [text]="'Error: ' + errMess"></Label>
+                        </ScrollView>
+                </GridLayout>
+
+</TabView>
+
+
