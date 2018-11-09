@@ -22,12 +22,11 @@ export class AppComponent implements OnInit  {
     errMess: string;
 
 
-    constructor(private router: Router, private routerExtensions: RouterExtensions, private receiptService: ReceiptService) {
+    constructor(private router: Router, private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject services.
     }
 
     ngOnInit(): void {
-        this.receiptService.getReceiptsFromServer()
         this._activatedUrl = "/cashflow";
         this._sideDrawerTransition = new SlideInOnTopTransition();
 

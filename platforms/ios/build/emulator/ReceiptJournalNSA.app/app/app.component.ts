@@ -4,6 +4,9 @@ import * as app from "application";
 import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { filter } from "rxjs/operators";
+import { Receipt } from "./shared/receipt";
+import { ReceiptService } from './services/receipt.service';
+
 
 
 @Component({
@@ -15,6 +18,9 @@ import { filter } from "rxjs/operators";
 export class AppComponent implements OnInit  { 
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
+    private receipts:Receipt[];
+    errMess: string;
+
 
     constructor(private router: Router, private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject services.
@@ -32,6 +38,7 @@ export class AppComponent implements OnInit  {
     get sideDrawerTransition(): DrawerTransitionBase {
         return this._sideDrawerTransition;
     }
+
 
     isComponentSelected(url: string): boolean {
         return this._activatedUrl === url;

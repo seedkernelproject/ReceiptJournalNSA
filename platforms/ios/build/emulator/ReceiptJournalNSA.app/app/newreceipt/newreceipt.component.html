@@ -1,2 +1,31 @@
-<ActionBar title="Client Receipts" class="action-bar" style="background-color: #553e2e">
+<ActionBar title="New Receipt" class="action-bar" backgroundColor="#76323f" color="white">
 </ActionBar>
+<ScrollView  tkMainContent class="page" style="background-color: #eee6e0; color:#4e4e4e;">
+    <StackLayout orientation="vertical" [formGroup]="newreceipt" style="padding-top: 70" >
+        <Label text="Receipt Date:"></Label>
+        <DatePicker style="background-color: white" height="70" #datepicker id="datepicker"></DatePicker>
+        <Label text="Client Name:"></Label>
+        <TextField style="background-color: white" id="clientname" (textChange)="onTextFieldChange($event)" formControlName="clientname"></TextField>
+        <Label text="Origin:"></Label>
+        <TextField style="background-color: white" id="origin" (textChange)="onTextFieldChange($event)" formControlName="origin"></TextField>
+        <Label text="Destination:"></Label>
+        <TextField style="background-color: white" id="destination" (textChange)="onTextFieldChange($event)" formControlName="destination"></TextField>
+        <Label text="Total Price:"></Label>
+        <TextField style="background-color: white" id="totalprice" keyboardType="number" (textChange)="onTextFieldChange($event)" formControlName="totalprice"></TextField>
+        <Label text="Driver Name:"></Label>
+        <TextField style="background-color: white" id="drivername" (textChange)="onTextFieldChange($event)" formControlName="drivername"></TextField>
+        <Label text="Plate Number:"></Label>
+        <TextField style="background-color: white" id="platenumber" (textChange)="onTextFieldChange($event)" formControlName="platenumber"></TextField>
+        <Label text="Driver Cost:"></Label>
+        <TextField style="background-color: white" id="drivercost" keyboardType="number" style="background-color: white" (textChange)="onTextFieldChange($event)" formControlName="drivercost"></TextField>
+        <Label text="Other Cost:"></Label>
+        <TextField style="background-color: white" id="othercost" keyboardType="number" (textChange)="onTextFieldChange($event)" formControlName="othercost"></TextField>
+        <Label text="Total Cost:"></Label>
+        <Label [text]="totalcost"></Label>
+        <Label text="Profit:"></Label>
+        <Label [text]="profit"></Label>
+        <Label text="Additional Remarks:"></Label>
+        <TextView style="background-color: white" formControlName="additionalremarks" ></TextView>
+        <button text="create" [isEnabled]="newreceipt.valid" (tap)="onSubmit()"></button>
+    </StackLayout>
+</ScrollView>

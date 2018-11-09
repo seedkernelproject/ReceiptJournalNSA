@@ -9,15 +9,15 @@
 		858B842D18CA22B800AB12DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 858B833A18CA111C00AB12DE /* InfoPlist.strings */; };
 		CD45EE7C18DC2D5800FB50C0 /* app in Resources */ = {isa = PBXBuildFile; fileRef = CD45EE7A18DC2D5800FB50C0 /* app */; };
 		CD62955D1BB2678900AE3A93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD62955C1BB2678900AE3A93 /* main.m */; };
-		CABC71CDEB6A4EF68D2FE7A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20050FB2E7394348A8DB7342 /* Assets.xcassets */; };
-		8A10B25123BA4C599C25CF8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7317AD68B544A4B197254B /* LaunchScreen.storyboard */; };
-		E4A12D8B544143BEBEAFB313 /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BCBC93E0F573449F92DA2581 /* build.xcconfig */; };
-		1CCE44C40E2E48B4BC3DA5FF /* TNSSideDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF38475AA9145F49815D7C7 /* TNSSideDrawer.framework */; };
-		9C8047231273429C96989495 /* TNSSideDrawer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF38475AA9145F49815D7C7 /* TNSSideDrawer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A0DC3B2037474617A7E386D8 /* TNSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D69EE4B260458894E3053A /* TNSCore.framework */; };
-		8480C862349C450B9A554176 /* TNSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 99D69EE4B260458894E3053A /* TNSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		415617BACA234558A5BAB2A2 /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08483DBD6534343B4849E99 /* TNSWidgets.framework */; };
-		EF04C4C42FF942669FBE7D80 /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D08483DBD6534343B4849E99 /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B49747F9DBFB4870A751F5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D12849318BBB4AAAA3BB8C91 /* Assets.xcassets */; };
+		68183D83E86046A58E83D546 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C293D3EE550E49F29A80455B /* LaunchScreen.storyboard */; };
+		A913F48936464442A47C8989 /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 387B1D8321F84418A5235BE9 /* build.xcconfig */; };
+		A624B5A089C84A7AAB4FEEF2 /* TNSSideDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F70595A50DB445EA7A00316 /* TNSSideDrawer.framework */; };
+		578D28F57280460B968AA367 /* TNSSideDrawer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F70595A50DB445EA7A00316 /* TNSSideDrawer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		898DED74B90F497484926513 /* TNSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB6A04A5E93465EBAEBA93D /* TNSCore.framework */; };
+		EAE2B32993CF4109B85B90B3 /* TNSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB6A04A5E93465EBAEBA93D /* TNSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0A07C89987214A0BB5A216ED /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4528B10A6D33479B980A16BF /* TNSWidgets.framework */; };
+		210791903FE34FA292C9F97B /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4528B10A6D33479B980A16BF /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,9 +27,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9C8047231273429C96989495 /* TNSSideDrawer.framework in Embed Frameworks */,
-				8480C862349C450B9A554176 /* TNSCore.framework in Embed Frameworks */,
-				EF04C4C42FF942669FBE7D80 /* TNSWidgets.framework in Embed Frameworks */,
+				578D28F57280460B968AA367 /* TNSSideDrawer.framework in Embed Frameworks */,
+				EAE2B32993CF4109B85B90B3 /* TNSCore.framework in Embed Frameworks */,
+				210791903FE34FA292C9F97B /* TNSWidgets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,12 +47,12 @@
 		CDD59A261BB43B5D00EC2671 /* build-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "build-debug.xcconfig"; sourceTree = "<group>"; };
 		CDD59A271BB43B5D00EC2671 /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "build-release.xcconfig"; sourceTree = "<group>"; };
 		CDF4743E1BA4855C0087EA85 /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = build.xcconfig; sourceTree = "<group>"; };
-		20050FB2E7394348A8DB7342 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = Assets.xcassets; path = "ReceiptJournalNSA/Resources/Assets.xcassets"; sourceTree = "<group>"; fileEncoding = 4; };
-		8E7317AD68B544A4B197254B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = LaunchScreen.storyboard; path = "ReceiptJournalNSA/Resources/LaunchScreen.storyboard"; sourceTree = "<group>"; fileEncoding = 4; };
-		BCBC93E0F573449F92DA2581 /* build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = build.xcconfig; path = "ReceiptJournalNSA/Resources/build.xcconfig"; sourceTree = "<group>"; fileEncoding = 4; };
-		3EF38475AA9145F49815D7C7 /* TNSSideDrawer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSSideDrawer.framework; path = "$(SRCROOT)/../../node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework"; sourceTree = "<group>"; };
-		99D69EE4B260458894E3053A /* TNSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSCore.framework; path = "$(SRCROOT)/../../node_modules/nativescript-ui-core/platforms/ios/TNSCore.framework"; sourceTree = "<group>"; };
-		D08483DBD6534343B4849E99 /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework"; sourceTree = "<group>"; };
+		D12849318BBB4AAAA3BB8C91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = Assets.xcassets; path = "ReceiptJournalNSA/Resources/Assets.xcassets"; sourceTree = "<group>"; fileEncoding = 4; };
+		C293D3EE550E49F29A80455B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = LaunchScreen.storyboard; path = "ReceiptJournalNSA/Resources/LaunchScreen.storyboard"; sourceTree = "<group>"; fileEncoding = 4; };
+		387B1D8321F84418A5235BE9 /* build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = build.xcconfig; path = "ReceiptJournalNSA/Resources/build.xcconfig"; sourceTree = "<group>"; fileEncoding = 4; };
+		5F70595A50DB445EA7A00316 /* TNSSideDrawer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSSideDrawer.framework; path = "$(SRCROOT)/../../node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework"; sourceTree = "<group>"; };
+		DDB6A04A5E93465EBAEBA93D /* TNSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSCore.framework; path = "$(SRCROOT)/../../node_modules/nativescript-ui-core/platforms/ios/TNSCore.framework"; sourceTree = "<group>"; };
+		4528B10A6D33479B980A16BF /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CCE44C40E2E48B4BC3DA5FF /* TNSSideDrawer.framework in Frameworks */,
-				A0DC3B2037474617A7E386D8 /* TNSCore.framework in Frameworks */,
-				415617BACA234558A5BAB2A2 /* TNSWidgets.framework in Frameworks */,
+				A624B5A089C84A7AAB4FEEF2 /* TNSSideDrawer.framework in Frameworks */,
+				898DED74B90F497484926513 /* TNSCore.framework in Frameworks */,
+				0A07C89987214A0BB5A216ED /* TNSWidgets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,9 +91,9 @@
 		858B833018CA111C00AB12DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3EF38475AA9145F49815D7C7 /* TNSSideDrawer.framework */,
-				99D69EE4B260458894E3053A /* TNSCore.framework */,
-				D08483DBD6534343B4849E99 /* TNSWidgets.framework */,
+				5F70595A50DB445EA7A00316 /* TNSSideDrawer.framework */,
+				DDB6A04A5E93465EBAEBA93D /* TNSCore.framework */,
+				4528B10A6D33479B980A16BF /* TNSWidgets.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -124,9 +124,9 @@
 		E070579D1B39A9D000214BF1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				20050FB2E7394348A8DB7342 /* Assets.xcassets */,
-				8E7317AD68B544A4B197254B /* LaunchScreen.storyboard */,
-				BCBC93E0F573449F92DA2581 /* build.xcconfig */,
+				D12849318BBB4AAAA3BB8C91 /* Assets.xcassets */,
+				C293D3EE550E49F29A80455B /* LaunchScreen.storyboard */,
+				387B1D8321F84418A5235BE9 /* build.xcconfig */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -189,9 +189,9 @@
 			files = (
 				CD45EE7C18DC2D5800FB50C0 /* app in Resources */,
 				858B842D18CA22B800AB12DE /* InfoPlist.strings in Resources */,
-				CABC71CDEB6A4EF68D2FE7A1 /* Assets.xcassets in Resources */,
-				8A10B25123BA4C599C25CF8C /* LaunchScreen.storyboard in Resources */,
-				E4A12D8B544143BEBEAFB313 /* build.xcconfig in Resources */,
+				B49747F9DBFB4870A751F5A0 /* Assets.xcassets in Resources */,
+				68183D83E86046A58E83D546 /* LaunchScreen.storyboard in Resources */,
+				A913F48936464442A47C8989 /* build.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,7 @@ import { NavigationEnd, Router } from "@angular/router";
 export class CashflowComponent implements OnInit {
 
   receipts: Receipt[];
+  errMess:string;
   paidReceipts: Receipt[];
   unpaidReceipts: Receipt[];
   totalPaidProfit: number = 0;
@@ -31,26 +32,34 @@ export class CashflowComponent implements OnInit {
     @Inject('baseURL') private baseURL,
     private vcRef: ViewContainerRef,
     private location:Location) {  
+
     }
 
   ngOnInit() {
-    this.receipts = this.receiptService.getReceipts();
-    this.paidReceipts=[];
-    this.unpaidReceipts=[];
+    this.receiptService.getReceipts().subscribe(
+      res =>{
+        this.receipts = res;
+        this.paidReceipts=[];
+        this.unpaidReceipts=[];
+        this.totalPaidProfit =0;
+        this.totalUnpaidProfit=0;
+        this.totalUnpaidReceipt=0;
 
-    console.log(this.totalUnpaidReceipt);
+        console.log(this.totalUnpaidReceipt);
 
-    for (var receipt of this.receipts){
-      if(receipt.status==true){
-        this.paidReceipts.push(receipt);
-        this.totalPaidProfit += receipt.profit;
-      }
-      if(receipt.status==false){
-        this.unpaidReceipts.push(receipt);
-        this.totalUnpaidProfit += receipt.profit;
-        this.totalUnpaidReceipt += parseFloat(receipt.totalprice);
-      }
+        for (var receipt of this.receipts){
+          if(receipt.status==true){
+            this.paidReceipts.push(receipt);
+            this.totalPaidProfit += receipt.profit;
+          }
+          if(receipt.status==false){
+            this.unpaidReceipts.push(receipt);
+            this.totalUnpaidProfit += receipt.profit;
+            this.totalUnpaidReceipt += parseFloat(receipt.totalprice);
+          }
     }
+      },errMes => this.errMess = errMes);
+    
       
   }
 
@@ -64,7 +73,7 @@ export class CashflowComponent implements OnInit {
     };
 
     this.modalService.showModal(RetrievedReceiptComponent, options)
-    .then((result:any) => {this.ngOnInit(); window.location.reload()})
+    .then((result:any) => {this.ngOnInit(); this.ngOnInit();})
   }
 
 

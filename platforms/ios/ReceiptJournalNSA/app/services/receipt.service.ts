@@ -20,18 +20,13 @@ export class ReceiptService {
   constructor(private http: Http,
     private processHTTPMsgService: ProcessHTTPMsgService) { }
 
-  getReceiptsFromServer() {
-    this.receiptsFromURL = this.http.get(baseURL + 'api/receipts')
+  getReceipts() : Observable<Receipt[]> {
+    return this.receiptsFromURL = this.http.get(baseURL + 'api/receipts')
       .pipe(map(res => { 
         return this.processHTTPMsgService.extractData(res); }))
       .pipe(catchError(error => {return this.processHTTPMsgService.handleError(error); }));
   }
 
-
-
-  getReceipts() {
-    return this.receiptsFromURL;
-  }
 
   createReceipt(receipt :JSON){
     return this.http.post(baseURL + 'api/createreceipt', receipt);

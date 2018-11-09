@@ -5,10 +5,13 @@ import { AppComponent } from "./app.component";
 import { HttpClientModule } from '@angular/common/http';
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { CashflowComponent } from "./cashflow/cashflow.component";
 import { NewReceiptComponent } from "./newreceipt/newreceipt.component";
+import { RetrievedReceiptComponent } from "./retrievedreceipt/retrievedreceipt.component";
 
 
 import { ReceiptService} from "./services/receipt.service";
@@ -32,11 +35,15 @@ import { baseURL } from './shared/baseurl';
         AppRoutingModule,
         HttpClientModule,
         NativeScriptHttpModule ,
-        NativeScriptUISideDrawerModule   ],
+        NativeScriptUISideDrawerModule,
+        NativeScriptFormsModule,
+        ReactiveFormsModule
+    ],
     declarations: [
         AppComponent,
         CashflowComponent,
-        NewReceiptComponent
+        NewReceiptComponent,
+        RetrievedReceiptComponent
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},
