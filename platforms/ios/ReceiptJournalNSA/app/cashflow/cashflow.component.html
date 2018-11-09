@@ -1,15 +1,15 @@
-<ActionBar title="Cashflow" class="action-bar" style="background-color: #553e2e">
+<ActionBar title="Cashflow" class="action-bar" backgroundColor="#76323f" color="white">
 </ActionBar>
 <TabView #tabview>
                 <GridLayout rows="50,*" *tabItem="{title: 'Unpaid'}" class="page">
-                                <GridLayout row="0" columns="auto,*" style="background-color: #de1b1b; color:white; font: bold">
+                                <GridLayout row="0" columns="auto,*" style="background-color: #76323f; color:white; font: bold">
                                         <Label col="0" text="Total Unpaid Profit:" class="listheader"></Label>
                                         <Label col="1" [text]="totalUnpaidProfit" class="listheader alignRight"></Label>
                                 </GridLayout>
-                                <ScrollView row="1" >
-                                        <ListView [items]="unpaidReceipts" *ngIf="unpaidReceipts" class="list-group" style="background-color: #f5f2e1e0">
+                                <ScrollView row="1" style="background-color: #eee6e0; color:#4e4e4e;">
+                                        <ListView [items]="unpaidReceipts" *ngIf="unpaidReceipts" class="list-group">
                                                 <ng-template let-receipt="item">
-                                                            <StackLayout class="list-group-item">
+                                                            <StackLayout class="list-group-item" (tap)="createModalView(receipt.inputdate)">
                                                                 <GridLayout columns="* *">
                                                                         <Label col="0" [text]="receipt.clientname" class="listheader"></Label>
                                                                         <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight"></Label>
@@ -31,14 +31,14 @@
                                 </ScrollView>
                         </GridLayout>  
         <GridLayout rows="50,*" *tabItem="{title: 'Paid'}" class="page">
-                <GridLayout row="0" columns="auto,*" style="background-color: rgb(35, 35, 247); color:white; font: bold">
+                <GridLayout row="0" columns="auto,*" style="background-color:  #76323f; color:white; font: bold">
                         <Label col="0" text="Total Paid Profit:" class="listheader"></Label>
                         <Label col="1" [text]="totalPaidProfit" class="listheader alignRight"></Label>
                 </GridLayout>
-                <ScrollView row="1" >
-                        <ListView [items]="paidReceipts" *ngIf="paidReceipts" class="list-group" style="background-color: #cadbe2">
+                <ScrollView row="1" style="background-color: #eee6e0; color:#4e4e4e;" >
+                        <ListView [items]="paidReceipts" *ngIf="paidReceipts" class="list-group" >
                                 <ng-template let-receipt="item">
-                                            <StackLayout class="list-group-item">
+                                            <StackLayout class="list-group-item" (tap)="createModalView(receipt.inputdate)">
                                                 <GridLayout columns="* *">
                                                         <Label col="0" [text]="receipt.clientname" class="listheader"></Label>
                                                         <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight"></Label>
@@ -60,14 +60,14 @@
                 </ScrollView>
         </GridLayout>
         <GridLayout rows="50,*" *tabItem="{title: 'Client Receipts'}" class="page">
-                        <GridLayout row="0" columns="auto,*" style="background-color: #a2836e; color:white; font: bold">
+                        <GridLayout row="0" columns="auto,*" style="background-color:  #76323f; color:white; font: bold">
                                 <Label col="0" text="Total Unpaid Amount:" class="listheader"></Label>
                                 <Label col="1" [text]="totalUnpaidReceipt" class="listheader alignRight"></Label>
                         </GridLayout>
-                        <ScrollView row="1" >
-                                <ListView [items]="unpaidReceipts" *ngIf="unpaidReceipts" class="list-group" style="background-color: #fff2df">
+                        <ScrollView row="1" style="background-color: #eee6e0; color:#4e4e4e;">
+                                <ListView [items]="unpaidReceipts" *ngIf="unpaidReceipts" class="list-group" >
                                         <ng-template let-receipt="item">
-                                                    <StackLayout class="list-group-item">
+                                                    <StackLayout class="list-group-item" (tap)="createModalView(receipt.inputdate)">
                                                         <GridLayout columns="* *">
                                                                 <Label col="0" [text]="receipt.clientname" class="listheader"></Label>
                                                                 <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight"></Label>

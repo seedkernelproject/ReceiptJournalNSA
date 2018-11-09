@@ -3,6 +3,9 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { TextField } from 'ui/text-field';
 import { TextView } from 'ui/text-view';
 import { DatePicker } from "tns-core-modules/ui/date-picker";
+import { ReceiptService } from '~/services/receipt.service';
+import { NavigationEnd, Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-menu',
@@ -16,9 +19,12 @@ export class NewReceiptComponent implements OnInit {
   profit: number=0;
   @ViewChild("datepicker") datepicker: ElementRef
 
-  constructor(private formBuilder: FormBuilder) {  
+  constructor(private formBuilder: FormBuilder,private receiptService: ReceiptService,
+    private changeDetectorRef:ChangeDetectorRef,
+    @Inject('baseURL') private baseURL,
+    private router:Router) {  
     this.newreceipt = this.formBuilder.group({
-      inputdate:         Date.now(),
+      inputdate:         '',
       receiptdate:       '',
       clientname:        ['', Validators.required],
       origin:            ['', Validators.required],
@@ -32,7 +38,7 @@ export class NewReceiptComponent implements OnInit {
       profit:            0,
       additionalremarks: '',
       status:            false,
-      paiddate:          '',
+      paiddate:          '9999-12-31',
     });  
   }
 
@@ -66,11 +72,22 @@ export class NewReceiptComponent implements OnInit {
   }
   
   onSubmit() {
-    console.log(this.newreceipt.valid);
     let receiptdate = <DatePicker>this.datepicker.nativeElement;
-    this.newreceipt.patchValue({receiptdate : receiptdate.year+"-"+receiptdate.month+"-"+receiptdate.day});
-
-    console.log(JSON.stringify(this.newreceipt.value));
+    var date = "";
+    if (receiptdate.day<10){
+      date = "0"+receiptdate.day
+    }else{
+      date = ""+receiptdate.day
+    }
+    this.newreceipt.patchValue({receiptdate : receiptdate.year+"-"+receiptdate.month+"-"+date});
+    console.log(JSON.stringify(this.newreceipt.value))
+    this.router.navigate(['cashflow'])
+    this.receiptService.createReceipt(this.newreceipt.value)
+      .subscribe(res => {
+        console.log(res);
+      },
+        errmess => {
+          console.log(errmess)
+      });
   }
-
-}
+  }

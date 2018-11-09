@@ -6,11 +6,11 @@
         </StackLayout>
         <ScrollView row="1">
             <StackLayout class="sidedrawer-content">
+                <GridLayout columns="auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/newreceipt')" (tap)="onNavItemTap('/newreceipt')">
+                    <Label col="1" text="Create Receipt" class="sidedrawer-list-item-text"></Label>
+                </GridLayout>
                 <GridLayout columns="auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/cashflow')" (tap)="onNavItemTap('/cashflow')">
                     <Label col="1" text="Cashflow" class="sidedrawer-list-item-text"></Label>
-                </GridLayout>
-                <GridLayout columns="auto" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/newreceipt')" (tap)="onNavItemTap('/newreceipt')">
-                    <Label col="1" text="Client Receipts" class="sidedrawer-list-item-text"></Label>
                 </GridLayout>
             </StackLayout>
         </ScrollView>

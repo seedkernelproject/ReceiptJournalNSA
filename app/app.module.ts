@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { CashflowComponent } from "./cashflow/cashflow.component";
 import { NewReceiptComponent } from "./newreceipt/newreceipt.component";
+import { RetrievedReceiptComponent } from "./retrievedreceipt/retrievedreceipt.component";
 
 
 import { ReceiptService} from "./services/receipt.service";
@@ -41,7 +42,8 @@ import { baseURL } from './shared/baseurl';
     declarations: [
         AppComponent,
         CashflowComponent,
-        NewReceiptComponent
+        NewReceiptComponent,
+        RetrievedReceiptComponent
     ],
     providers: [
         {provide: 'baseURL', useValue: baseURL},

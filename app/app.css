@@ -11,15 +11,15 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 
 .sidedrawer-left {
-    background-color: #fff2df;
+    background-color: #eee6e0;  
 }
 
 .sidedrawer-header {
-    background-color: #553e2e;
+    background-color: #76323f;
 }
 
 .sidedrawer-header .sidedrawer-header-image {
-    background-color: #d9ad7c;
+    background-color: #76323f;
     margin: 10;
 }
 
@@ -31,7 +31,7 @@ refer to http://docs.nativescript.org/ui/theme.
 
 .sidedrawer-list-item {
     padding-left: 15;
-    color: black;
+    color:#4e4e4e;
 }
 
 .sidedrawer-list-item-text {
@@ -41,6 +41,6 @@ refer to http://docs.nativescript.org/ui/theme.
 }
 
 .selected {
-    background-color: #a2836e;
-    color: #fff2df;
+    background-color: #565656;
+    color: #ffffff;
 }
