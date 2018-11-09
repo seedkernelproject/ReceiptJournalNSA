@@ -39,9 +39,9 @@ export class CashflowComponent implements OnInit {
         this.receipts = res;
         this.paidReceipts=[];
         this.unpaidReceipts=[];
-    
+
         console.log(this.totalUnpaidReceipt);
-    
+
         for (var receipt of this.receipts){
           if(receipt.status==true){
             this.paidReceipts.push(receipt);
@@ -52,9 +52,9 @@ export class CashflowComponent implements OnInit {
             this.totalUnpaidProfit += receipt.profit;
             this.totalUnpaidReceipt += parseFloat(receipt.totalprice);
           }
-        }
-      })
-   
+    }
+      });
+    
       
   }
 
