@@ -4,14 +4,14 @@ export interface Receipt {
 	clientname:        string;
 	origin:            string;
 	destination:       string;
-	totalprice:        number;
+	totalprice:        string;
 	drivername:        string;
 	platenumber:       string;
-	drivercost:        number;
-	othercost:         number;
+	drivercost:        string;
+	othercost:         string;
 	totalcost:         number;
 	profit:            number;
-	adddtionalremarks: string;
+	additionalremarks: string;
 	status:            boolean;
 	paiddate:          string;
 }

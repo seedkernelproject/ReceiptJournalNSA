@@ -1,4 +1,5 @@
 <StackLayout style="padding-top: 70">
+        <Label text="Retrieved Receipt" style="font-size: 20; align-self: center; background-color:  #76323f; color:white; font-weight: bold"></Label>
        <GridLayout rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto" columns="* *">
             <Label row="0" col="0" text="Receipt ID:"></Label>
             <Label row="0" col="1" [text]="retrievedReceipt.inputdate" style="text-align:right"></Label>
@@ -11,27 +12,27 @@
             <Label row="4" col="0" text="Destination:"></Label>
             <Label row="4" col="1" [text]="retrievedReceipt.destination" style="text-align:right"></Label>
             <Label row="5" col="0" text="Total Price:"></Label>
-            <Label row="5" col="1" [text]="retrievedReceipt.totalprice" style="text-align:right"></Label>
+            <Label row="5" col="1" [text]="numberWithCommas(retrievedReceipt.totalprice)" style="text-align:right"></Label>
             <Label row="6" col="0" text="Driver Name:"></Label>
             <Label row="6" col="1" [text]="retrievedReceipt.drivername" style="text-align:right"></Label>
             <Label row="7" col="0" text="Plate Number:"></Label>
             <Label row="7" col="1" [text]="retrievedReceipt.platenumber" style="text-align:right"></Label>
             <Label row="8" col="0" text="Driver Cost:"></Label>
-            <Label row="8" col="1" [text]="retrievedReceipt.drivercost" style="text-align:right"></Label>
+            <Label row="8" col="1" [text]="numberWithCommas(retrievedReceipt.drivercost)" style="text-align:right"></Label>
             <Label row="9" col="0" text="Other Cost:"></Label>
-            <Label row="9" col="1" [text]="retrievedReceipt.othercost" style="text-align:right"></Label>
+            <Label row="9" col="1" [text]="numberWithCommas(retrievedReceipt.othercost)" style="text-align:right"></Label>
             <Label row="10" col="0" text="Total Cost:"></Label>
-            <Label row="10" col="1" [text]="retrievedReceipt.totalcost" style="text-align:right"></Label>
+            <Label row="10" col="1" [text]="numberWithCommas(retrievedReceipt.totalcost)" style="text-align:right"></Label>
             <Label row="11" col="0" text="Profit:"></Label>
-            <Label row="11" col="1" [text]="retrievedReceipt.profit" style="text-align:right"></Label>
+            <Label row="11" col="1" [text]="numberWithCommas(retrievedReceipt.profit)" style="text-align:right" [color]="retrievedReceipt.profit>0?'green':'#800020'"></Label>
             <Label row="12" col="0" text="Additional Remarks:"></Label>
             <Label row="12" col="1" [text]="retrievedReceipt.additionalremarks" style="text-align:right"></Label>
             <Label row="13" col="0" text="Status:"></Label>
-            <Label row="13" col="1" [text]="retrievedReceipt.status" style="text-align:right"></Label>
-            <Label row="14" col="0" [visibility]="retrievedReceipt.status ? 'visible': 'collapsed'"text="Paid Date:"></Label>
+            <Label row="13" col="1" [text]="retrievedReceipt.status ? 'Paid':'Unpaid'" style="text-align:right" [color]="retrievedReceipt.status?'green':'#800020'"></Label>
+            <Label row="14" col="0" [visibility]="retrievedReceipt.status ? 'visible': 'collapsed'" text="Paid Date:"></Label>
             <Label row="14" col="1" [visibility]="retrievedReceipt.status ? 'visible': 'collapsed'" [text]="retrievedReceipt.paiddate" style="text-align:right"></Label>
        </GridLayout>
-       <button text="update" (tap)="onUpdate()"></button>
+       <button text="update" [visibility]="!retrievedReceipt.status ? 'visible': 'collapsed'" (tap)="onUpdate()"></button>
        <button text="close" (tap)="close()"></button>
 </StackLayout>
 

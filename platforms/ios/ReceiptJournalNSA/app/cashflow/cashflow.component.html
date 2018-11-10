@@ -4,7 +4,7 @@
                 <GridLayout rows="50,*" *tabItem="{title: 'Unpaid'}" class="page">
                                 <GridLayout row="0" columns="auto,*" style="background-color: #76323f; color:white; font: bold">
                                         <Label col="0" text="Total Unpaid Profit:" class="listheader"></Label>
-                                        <Label col="1" [text]="totalUnpaidProfit" class="listheader alignRight"></Label>
+                                        <Label col="1" [text]="numberWithCommas(totalPaidProfit)" class="listheader alignRight"></Label>
                                 </GridLayout>
                                 <ScrollView row="1" style="background-color: #eee6e0; color:#4e4e4e;">
                                         <ListView [items]="unpaidReceipts" *ngIf="unpaidReceipts" class="list-group">
@@ -12,7 +12,7 @@
                                                             <StackLayout class="list-group-item" (tap)="createModalView(receipt.inputdate)">
                                                                 <GridLayout columns="* *">
                                                                         <Label col="0" [text]="receipt.clientname" class="listheader"></Label>
-                                                                        <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight"></Label>
+                                                                        <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight" style="color:#800020"></Label>
                                                                 </GridLayout>
                                                                 <StackLayout orientation="horizontal">
                                                                         <Label [text]="receipt.origin" class="listitem"></Label>
@@ -21,7 +21,7 @@
                                                                 </StackLayout>
                                                                 <StackLayout orientation="horizontal">
                                                                         <Label col="0" text="Profit: " class="listitem"></Label>
-                                                                        <Label col="1"  [text]="receipt.profit" class="listitem"></Label>
+                                                                        <Label col="1"  [text]="numberWithCommas(receipt.profit)" class="listitem" [color]="receipt.profit>0?'green':'red'"></Label>
                                                                 </StackLayout>
                                                             </StackLayout>
                                                     </ng-template>
@@ -33,7 +33,7 @@
         <GridLayout rows="50,*" *tabItem="{title: 'Paid'}" class="page">
                 <GridLayout row="0" columns="auto,*" style="background-color:  #76323f; color:white; font: bold">
                         <Label col="0" text="Total Paid Profit:" class="listheader"></Label>
-                        <Label col="1" [text]="totalPaidProfit" class="listheader alignRight"></Label>
+                        <Label col="1" [text]="numberWithCommas(totalPaidProfit)" class="listheader alignRight"></Label>
                 </GridLayout>
                 <ScrollView row="1" style="background-color: #eee6e0; color:#4e4e4e;" >
                         <ListView [items]="paidReceipts" *ngIf="paidReceipts" class="list-group" >
@@ -41,7 +41,7 @@
                                             <StackLayout class="list-group-item" (tap)="createModalView(receipt.inputdate)">
                                                 <GridLayout columns="* *">
                                                         <Label col="0" [text]="receipt.clientname" class="listheader"></Label>
-                                                        <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight"></Label>
+                                                        <Label col="1"  [text]="receipt.paiddate" class="listheader alignRight" style="color:green"></Label>
                                                 </GridLayout>
                                                 <StackLayout orientation="horizontal">
                                                         <Label [text]="receipt.origin" class="listitem"></Label>
@@ -50,7 +50,7 @@
                                                 </StackLayout>
                                                 <StackLayout orientation="horizontal">
                                                         <Label col="0" text="Profit: " class="listitem"></Label>
-                                                        <Label col="1"  [text]="receipt.profit" class="listitem"></Label>
+                                                        <Label col="1"  [text]="numberWithCommas(receipt.profit)" class="listitem" [color]="receipt.profit>0?'green':'red'"></Label>
                                                 </StackLayout>
                                             </StackLayout>
                                     </ng-template>
@@ -62,7 +62,7 @@
         <GridLayout rows="50,*" *tabItem="{title: 'Client Receipts'}" class="page">
                         <GridLayout row="0" columns="auto,*" style="background-color:  #76323f; color:white; font: bold">
                                 <Label col="0" text="Total Unpaid Amount:" class="listheader"></Label>
-                                <Label col="1" [text]="totalUnpaidReceipt" class="listheader alignRight"></Label>
+                                <Label col="1" [text]="numberWithCommas(totalUnpaidReceipt)" class="listheader alignRight"></Label>
                         </GridLayout>
                         <ScrollView row="1" style="background-color: #eee6e0; color:#4e4e4e;">
                                 <ListView [items]="unpaidReceipts" *ngIf="unpaidReceipts" class="list-group" >
@@ -70,7 +70,7 @@
                                                     <StackLayout class="list-group-item" (tap)="createModalView(receipt.inputdate)">
                                                         <GridLayout columns="* *">
                                                                 <Label col="0" [text]="receipt.clientname" class="listheader"></Label>
-                                                                <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight"></Label>
+                                                                <Label col="1"  [text]="receipt.receiptdate" class="listheader alignRight" style="color:#800020"></Label>
                                                         </GridLayout>
                                                         <StackLayout orientation="horizontal">
                                                                 <Label [text]="receipt.origin" class="listitem"></Label>
@@ -79,7 +79,7 @@
                                                         </StackLayout>
                                                         <StackLayout orientation="horizontal">
                                                                 <Label col="0" text="Price: " class="listitem"></Label>
-                                                                <Label col="1"  [text]="receipt.totalprice" class="listitem"></Label>
+                                                                <Label col="1"  [text]="numberWithCommas(receipt.totalprice)" class="listitem" style="color:#800020"></Label>
                                                         </StackLayout>
                                                     </StackLayout>
                                             </ng-template>

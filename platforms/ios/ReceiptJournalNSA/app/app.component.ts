@@ -18,8 +18,6 @@ import { ReceiptService } from './services/receipt.service';
 export class AppComponent implements OnInit  { 
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
-    private receipts:Receipt[];
-    errMess: string;
 
 
     constructor(private router: Router, private routerExtensions: RouterExtensions) {

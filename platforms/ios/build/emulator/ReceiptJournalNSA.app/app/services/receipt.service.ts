@@ -15,16 +15,20 @@ import { ProcessHTTPMsgService } from './process-httpmsg.service';
 })
 export class ReceiptService {
 
-  private receiptsFromURL: Observable<Receipt[]>;
+  storedreceipts: Receipt[];
 
   constructor(private http: Http,
     private processHTTPMsgService: ProcessHTTPMsgService) { }
 
-  getReceiptsFromServer() : Observable<Receipt[]> {
-    return this.receiptsFromURL = this.http.get(baseURL + 'api/receipts')
+  getReceiptsfromURLfromURL() : Observable<Receipt[]> {
+    return this.http.get(baseURL + 'api/receipts')
       .pipe(map(res => { 
         return this.processHTTPMsgService.extractData(res); }))
       .pipe(catchError(error => {return this.processHTTPMsgService.handleError(error); }));
+  }
+
+  storeReceipts(receipts: Receipt[]){
+      this.storedreceipts = receipts;
   }
 
 

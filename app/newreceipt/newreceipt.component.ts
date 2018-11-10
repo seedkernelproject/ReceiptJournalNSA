@@ -81,7 +81,6 @@ export class NewReceiptComponent implements OnInit {
     }
     this.newreceipt.patchValue({receiptdate : receiptdate.year+"-"+receiptdate.month+"-"+date});
     console.log(JSON.stringify(this.newreceipt.value))
-    this.router.navigate(['cashflow'])
     this.receiptService.createReceipt(this.newreceipt.value)
       .subscribe(res => {
         console.log(res);
@@ -89,5 +88,12 @@ export class NewReceiptComponent implements OnInit {
         errmess => {
           console.log(errmess)
       });
+      this.router.navigate(['cashflow'])
   }
+
+  numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
   }

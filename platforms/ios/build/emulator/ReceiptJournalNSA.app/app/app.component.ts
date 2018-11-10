@@ -18,21 +18,27 @@ import { ReceiptService } from './services/receipt.service';
 export class AppComponent implements OnInit  { 
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
-    private receipts:Receipt[];
-    errMess: string;
+
+    receipts: Receipt[];
+    errMess:string;
 
 
-    constructor(private router: Router, private routerExtensions: RouterExtensions) {
+    constructor(private router: Router, private routerExtensions: RouterExtensions,private receiptService: ReceiptService) {
         // Use the component constructor to inject services.
     }
 
     ngOnInit(): void {
-        this._activatedUrl = "/cashflow";
-        this._sideDrawerTransition = new SlideInOnTopTransition();
-
-        this.router.events
-        .pipe(filter((event: any) => event instanceof NavigationEnd))
-        .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
+        this.receiptService.getReceiptsfromURLfromURL().subscribe(
+            res =>{
+              this.receipts = res;
+              this.receiptService.storeReceipts(this.receipts);
+              this._activatedUrl = "/cashflow";
+              this._sideDrawerTransition = new SlideInOnTopTransition();
+      
+              this.router.events
+              .pipe(filter((event: any) => event instanceof NavigationEnd))
+              .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
+            },errMes => this.errMess = errMes);
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {

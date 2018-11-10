@@ -5,6 +5,7 @@ import { ReceiptService } from '../services/receipt.service';
 import { RetrievedReceiptComponent} from "../retrievedreceipt/retrievedreceipt.component"
 import { Location } from '@angular/common';
 import { NavigationEnd, Router } from "@angular/router";
+import { yearProperty } from 'tns-core-modules/ui/date-picker/date-picker';
 
 
 
@@ -33,19 +34,26 @@ export class CashflowComponent implements OnInit {
     private vcRef: ViewContainerRef,
     private location:Location) {  
 
+
     }
 
   ngOnInit() {
-    this.receiptService.getReceipts().subscribe(
+
+    this.receiptService.getReceiptsfromURL().subscribe(
       res =>{
-        this.receipts = res;
         this.paidReceipts=[];
         this.unpaidReceipts=[];
-        this.totalPaidProfit =0;
-        this.totalUnpaidProfit=0;
-        this.totalUnpaidReceipt=0;
-
-        console.log(this.totalUnpaidReceipt);
+        this.totalPaidProfit = 0;
+        this.totalUnpaidProfit = 0;
+        this.totalUnpaidReceipt = 0;
+        this.receipts = res.sort(function(a, b){
+          var nameA=a.inputdate.toLowerCase(), nameB=b.inputdate.toLowerCase()
+          if (nameA < nameB) 
+              return 1 
+          if (nameA > nameB)
+              return -1
+          return 0 
+      });
 
         for (var receipt of this.receipts){
           if(receipt.status==true){
@@ -57,8 +65,18 @@ export class CashflowComponent implements OnInit {
             this.totalUnpaidProfit += receipt.profit;
             this.totalUnpaidReceipt += parseFloat(receipt.totalprice);
           }
-    }
+        }
+        this.paidReceipts.sort(function(a, b){
+          var dateA=+new Date(parseInt(a.paiddate.slice(6)),parseInt(a.paiddate.slice(3,5)),parseInt(a.paiddate.slice(0,2)));
+          var dateB=+new Date(parseInt(b.paiddate.slice(6)),parseInt(b.paiddate.slice(3,5)),parseInt(b.paiddate.slice(0,2)));
+          return dateB-dateA 
+        });
+        console.log(this.numberWithCommas(this.totalPaidProfit));
+
       },errMes => this.errMess = errMes);
+
+
+
     
       
   }
@@ -73,9 +91,13 @@ export class CashflowComponent implements OnInit {
     };
 
     this.modalService.showModal(RetrievedReceiptComponent, options)
-    .then((result:any) => {this.ngOnInit(); this.ngOnInit();})
+    .then((result:any) => {this.ngOnInit();})
   }
-
-
+  
+  numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
 
 }

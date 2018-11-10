@@ -31,30 +31,32 @@ export class CashflowComponent implements OnInit {
     @Inject('baseURL') private baseURL,
     private vcRef: ViewContainerRef,
     private location:Location) {  
+      
+
     }
 
   ngOnInit() {
-    this.receiptService.getReceiptsFromServer().subscribe(
-      res =>{
-        this.receipts = res;
-        this.paidReceipts=[];
-        this.unpaidReceipts=[];
-
-        console.log(this.totalUnpaidReceipt);
-
-        for (var receipt of this.receipts){
-          if(receipt.status==true){
-            this.paidReceipts.push(receipt);
-            this.totalPaidProfit += receipt.profit;
-          }
-          if(receipt.status==false){
-            this.unpaidReceipts.push(receipt);
-            this.totalUnpaidProfit += receipt.profit;
-            this.totalUnpaidReceipt += parseFloat(receipt.totalprice);
-          }
+    this.receipts = this.receiptService.storedreceipts
+    this.paidReceipts=[];
+    this.unpaidReceipts=[];
+    this.totalPaidProfit =0;
+    this.totalUnpaidProfit=0;
+    this.totalUnpaidReceipt=0;
+      
+    console.log(this.receipts);
+      
+    for (var receipt of this.receipts){
+      if(receipt.status==true){
+        this.paidReceipts.push(receipt);
+        this.totalPaidProfit += receipt.profit;
+      }
+      if(receipt.status==false){
+        this.unpaidReceipts.push(receipt);
+        this.totalUnpaidProfit += receipt.profit;
+        this.totalUnpaidReceipt += parseFloat(receipt.totalprice);
+      }
     }
-      });
-    
+
       
   }
 
@@ -68,7 +70,7 @@ export class CashflowComponent implements OnInit {
     };
 
     this.modalService.showModal(RetrievedReceiptComponent, options)
-    .then((result:any) => {this.ngOnInit(); window.location.reload()})
+    .then((result:any) => {this.ngOnInit(); this.ngOnInit();})
   }
 
 
